@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Conan Audit Vulnerabilities Report</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+  <style>
+    body { margin: 0; padding: 0; font-family: Arial, sans-serif; background: #333; color: #ffffff; }
+    .container { width: 95%; margin: 40px auto; padding: 20px; background: #222; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; }
+    h1 { text-align: center; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; table-layout: fixed; padding-top: 10px;}
+    col[data-dt-column="0"] { width: 10%; }
+    col[data-dt-column="1"] { width: 10%; }
+    col[data-dt-column="2"] { width: auto; }
+    thead { background: #333; color: #fff; }
+    thead th { padding: 12px; text-align: left; }
+    tbody tr { border-bottom: 1px solid #ddd; }
+    tbody tr:hover { background: #f0f0f0; }
+    td { padding: 10px; vertical-align: top; white-space: normal; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;}
+    .severity-badge { padding: 2px 4px; border-radius: 4px; color: #fff; font-weight: bold; display: inline-block; }
+    .severity-Critical { background: #d9534f; animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(217,83,79,0.7); } 70% { box-shadow: 0 0 0 12px rgba(217,83,79,0); } 100% { box-shadow: 0 0 0 0 rgba(217,83,79,0); } }
+    .severity-High { background: #f0ad4e; }
+    .severity-Medium { background: #f7ecb5; color: #333; }
+    .severity-Low { background: #5cb85c; }
+    .footer { text-align: center; color: #666; margin-bottom: 10px; }
+    a { color: #007bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .jfrog-research-summary { padding: 10px; border-radius: 6px; margin-bottom: 10px; border: 1px solid #555; }
+    .jfrog-research-details { margin-top: 10px; }
+  </style>
+  <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('#vuln_table').DataTable({
+        "columnDefs": [
+          { "orderable": true, "targets": [0, 1] },
+          { "orderable": false, "targets": [2] }
+        ],
+        "order": [[1, "desc"]],
+        "autoWidth": false,
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Conan Audit Vulnerabilities Report</h1>
+    <table id="vuln_table" class="stripe">
+      <colgroup>
+        <col class="pkg-col">
+        <col class="info-col">
+        <col class="desc-col">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Package</th>
+          <th>Info</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      
+        
+        
+        
+        <tr>
+          <td>
+            libpng/1.6.32
+          </td>
+          <td>
+            <span style="display: none">CVSS: 7.1</span>
+            
+            CVE-2025-65018
+            <br>
+            
+              <span class="severity-badge severity-High">High</span>
+            
+            CVSS: 7.1
+          </td>
+          <td>
+            
+                
+            
+            <strong>Description:</strong>
+            <br>
+            LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. From version 1.6.0 to before 1.6.51, there is a heap buffer overflow vulnerability in the libpng simplified API function png_image_finish_read when processing 16-bit interlaced PNGs with 8-bit output format. Attacker-crafted interlaced PNG files cause heap writes beyond allocated buffer bounds. This issue has been patched in version 1.6.51.
+            
+                <br>
+                <br>
+                <strong>Published at:</strong> 2025-11-22
+            
+            
+                <div class="fix-versions-section">
+                    <br>
+                    <strong>Fixed in version(s):</strong>
+                    <br>
+                    
+                        <span class="severity-badge severity-Medium">1.6.52</span>
+                    
+                </div>
+            
+            
+              <br><strong>References:</strong>
+              <ul>
+                
+                  <li><a href="https://packages.mini.dev/advisories/osv/MINI-52f5-r5pj-382r.json" target="_blank">https://packages.mini.dev/advisories/osv/MINI-52f5-r5pj-382r.json</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/commit/16b5e3823918840aae65c0a6da57c78a5a496a4d" target="_blank">https://github.com/pnggroup/libpng/commit/16b5e3823918840aae65c0a6da57c78a5a496a4d</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/commit/218612ddd6b17944e21eda56caf8b4bf7779d1ea" target="_blank">https://github.com/pnggroup/libpng/commit/218612ddd6b17944e21eda56caf8b4bf7779d1ea</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/issues/755" target="_blank">https://github.com/pnggroup/libpng/issues/755</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/pull/757" target="_blank">https://github.com/pnggroup/libpng/pull/757</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/security/advisories/GHSA-7wv6-48j4-hj3g" target="_blank">https://github.com/pnggroup/libpng/security/advisories/GHSA-7wv6-48j4-hj3g</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/cve/CVE-2025-65018" target="_blank">https://advisory.echohq.com/cve/CVE-2025-65018</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/osv/ECHO-4a92-1299-0ec1.json" target="_blank">https://advisory.echohq.com/osv/ECHO-4a92-1299-0ec1.json</a></li>
+                
+              </ul>
+            
+            
+              <br><strong>Aliases:</strong> CVE-2025-65018, ECHO-4a92-1299-0ec1, JFSA-2025-001646877, MINI-52f5-r5pj-382r
+            
+          </td>
+        </tr>
+      
+        
+        
+        
+        <tr>
+          <td>
+            libpng/1.6.32
+          </td>
+          <td>
+            <span style="display: none">CVSS: 7.1</span>
+            
+            CVE-2025-64720
+            <br>
+            
+              <span class="severity-badge severity-High">High</span>
+            
+            CVSS: 7.1
+          </td>
+          <td>
+            
+                
+            
+            <strong>Description:</strong>
+            <br>
+            LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. From version 1.6.0 to before 1.6.51, an out-of-bounds read vulnerability exists in png_image_read_composite when processing palette images with PNG_FLAG_OPTIMIZE_ALPHA enabled. The palette compositing code in png_init_read_transformations incorrectly applies background compositing during premultiplication, violating the invariant component ≤ alpha × 257 required by the simplified PNG API. This issue has been patched in version 1.6.51.
+            
+                <br>
+                <br>
+                <strong>Published at:</strong> 2025-11-22
+            
+            
+                <div class="fix-versions-section">
+                    <br>
+                    <strong>Fixed in version(s):</strong>
+                    <br>
+                    
+                        <span class="severity-badge severity-Medium">1.6.52</span>
+                    
+                </div>
+            
+            
+              <br><strong>References:</strong>
+              <ul>
+                
+                  <li><a href="https://packages.mini.dev/advisories/osv/MINI-x2fw-4f8q-cp73.json" target="_blank">https://packages.mini.dev/advisories/osv/MINI-x2fw-4f8q-cp73.json</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/commit/08da33b4c88cfcd36e5a706558a8d7e0e4773643" target="_blank">https://github.com/pnggroup/libpng/commit/08da33b4c88cfcd36e5a706558a8d7e0e4773643</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/issues/686" target="_blank">https://github.com/pnggroup/libpng/issues/686</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/pull/751" target="_blank">https://github.com/pnggroup/libpng/pull/751</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/security/advisories/GHSA-hfc7-ph9c-wcww" target="_blank">https://github.com/pnggroup/libpng/security/advisories/GHSA-hfc7-ph9c-wcww</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/cve/CVE-2025-64720" target="_blank">https://advisory.echohq.com/cve/CVE-2025-64720</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/osv/ECHO-ad7d-93e1-b804.json" target="_blank">https://advisory.echohq.com/osv/ECHO-ad7d-93e1-b804.json</a></li>
+                
+              </ul>
+            
+            
+              <br><strong>Aliases:</strong> CVE-2025-64720, ECHO-ad7d-93e1-b804, JFSA-2025-001648145, MINI-x2fw-4f8q-cp73
+            
+          </td>
+        </tr>
+      
+        
+        
+        
+        <tr>
+          <td>
+            libpng/1.6.32
+          </td>
+          <td>
+            <span style="display: none">CVSS: 7.1</span>
+            
+            CVE-2025-66293
+            <br>
+            
+              <span class="severity-badge severity-High">High</span>
+            
+            CVSS: 7.1
+          </td>
+          <td>
+            
+                
+            
+            <strong>Description:</strong>
+            <br>
+            LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. Prior to 1.6.52, an out-of-bounds read vulnerability in libpng&#39;s simplified API allows reading up to 1012 bytes beyond the png_sRGB_base[512] array when processing valid palette PNG images with partial transparency and gamma correction. The PNG files that trigger this vulnerability are valid per the PNG specification; the bug is in libpng&#39;s internal state management. Upgrade to libpng 1.6.52 or later.
+            
+                <br>
+                <br>
+                <strong>Published at:</strong> 2025-12-03
+            
+            
+                <div class="fix-versions-section">
+                    <br>
+                    <strong>Fixed in version(s):</strong>
+                    <br>
+                    
+                        <span class="severity-badge severity-Medium">1.6.52</span>
+                    
+                </div>
+            
+            
+              <br><strong>References:</strong>
+              <ul>
+                
+                  <li><a href="https://advisory.echohq.com/cve/CVE-2025-66293" target="_blank">https://advisory.echohq.com/cve/CVE-2025-66293</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/osv/ECHO-91c2-e6d0-2b32.json" target="_blank">https://advisory.echohq.com/osv/ECHO-91c2-e6d0-2b32.json</a></li>
+                
+                  <li><a href="https://packages.mini.dev/advisories/osv/MINI-x659-r72g-8hc3.json" target="_blank">https://packages.mini.dev/advisories/osv/MINI-x659-r72g-8hc3.json</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/commit/788a624d7387a758ffd5c7ab010f1870dea753a1" target="_blank">https://github.com/pnggroup/libpng/commit/788a624d7387a758ffd5c7ab010f1870dea753a1</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/commit/a05a48b756de63e3234ea6b3b938b8f5f862484a" target="_blank">https://github.com/pnggroup/libpng/commit/a05a48b756de63e3234ea6b3b938b8f5f862484a</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/issues/764" target="_blank">https://github.com/pnggroup/libpng/issues/764</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/security/advisories/GHSA-9mpm-9pxh-mg4f" target="_blank">https://github.com/pnggroup/libpng/security/advisories/GHSA-9mpm-9pxh-mg4f</a></li>
+                
+                  <li><a href="http://www.openwall.com/lists/oss-security/2025/12/03/6" target="_blank">http://www.openwall.com/lists/oss-security/2025/12/03/6</a></li>
+                
+                  <li><a href="http://www.openwall.com/lists/oss-security/2025/12/03/7" target="_blank">http://www.openwall.com/lists/oss-security/2025/12/03/7</a></li>
+                
+                  <li><a href="http://www.openwall.com/lists/oss-security/2025/12/03/8" target="_blank">http://www.openwall.com/lists/oss-security/2025/12/03/8</a></li>
+                
+              </ul>
+            
+            
+              <br><strong>Aliases:</strong> CVE-2025-66293, ECHO-91c2-e6d0-2b32, JFSA-2025-001648642, MINI-x659-r72g-8hc3
+            
+          </td>
+        </tr>
+      
+        
+        
+        
+        <tr>
+          <td>
+            libpng/1.6.32
+          </td>
+          <td>
+            <span style="display: none">CVSS: 5.3</span>
+            
+            CVE-2019-7317
+            <br>
+            
+              <span class="severity-badge severity-Medium">Medium</span>
+            
+            CVSS: 5.3
+          </td>
+          <td>
+            
+            <strong>Description:</strong>
+            <br>
+            png_image_free in png.c in libpng 1.6.x before 1.6.37 has a use-after-free because png_image_free_function is called under png_safe_execute.
+            
+                <br>
+                <br>
+                <strong>Published at:</strong> 2019-02-04
+            
+            
+                <div class="fix-versions-section">
+                    <br>
+                    <strong>Fixed in version(s):</strong>
+                    <br>
+                    
+                        <span class="severity-badge severity-Medium">1.6.37</span>
+                    
+                </div>
+            
+            
+              <br><strong>References:</strong>
+              <ul>
+                
+                  <li><a href="https://packages.mini.dev/advisories/osv/MINI-wqw4-chj5-46fg.json" target="_blank">https://packages.mini.dev/advisories/osv/MINI-wqw4-chj5-46fg.json</a></li>
+                
+                  <li><a href="https://seclists.org/bugtraq/2019/Apr/36" target="_blank">https://seclists.org/bugtraq/2019/Apr/36</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:1265" target="_blank">https://access.redhat.com/errata/RHSA-2019:1265</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:1309" target="_blank">https://access.redhat.com/errata/RHSA-2019:1309</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:1308" target="_blank">https://access.redhat.com/errata/RHSA-2019:1308</a></li>
+                
+                  <li><a href="http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00029.html" target="_blank">http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00029.html</a></li>
+                
+                  <li><a href="https://usn.ubuntu.com/4080-1/" target="_blank">https://usn.ubuntu.com/4080-1/</a></li>
+                
+                  <li><a href="https://github.com/glennrp/libpng/issues/275" target="_blank">https://github.com/glennrp/libpng/issues/275</a></li>
+                
+                  <li><a href="https://www.debian.org/security/2019/dsa-4435" target="_blank">https://www.debian.org/security/2019/dsa-4435</a></li>
+                
+                  <li><a href="https://security.gentoo.org/glsa/201908-02" target="_blank">https://security.gentoo.org/glsa/201908-02</a></li>
+                
+                  <li><a href="http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00038.html" target="_blank">http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00038.html</a></li>
+                
+                  <li><a href="http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00002.html" target="_blank">http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00002.html</a></li>
+                
+                  <li><a href="http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00084.html" target="_blank">http://lists.opensuse.org/opensuse-security-announce/2019-06/msg00084.html</a></li>
+                
+                  <li><a href="http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00044.html" target="_blank">http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00044.html</a></li>
+                
+                  <li><a href="http://packetstormsecurity.com/files/152561/Slackware-Security-Advisory-libpng-Updates.html" target="_blank">http://packetstormsecurity.com/files/152561/Slackware-Security-Advisory-libpng-Updates.html</a></li>
+                
+                  <li><a href="http://www.securityfocus.com/bid/108098" target="_blank">http://www.securityfocus.com/bid/108098</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:1267" target="_blank">https://access.redhat.com/errata/RHSA-2019:1267</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:1269" target="_blank">https://access.redhat.com/errata/RHSA-2019:1269</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:1310" target="_blank">https://access.redhat.com/errata/RHSA-2019:1310</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:2494" target="_blank">https://access.redhat.com/errata/RHSA-2019:2494</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:2495" target="_blank">https://access.redhat.com/errata/RHSA-2019:2495</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:2585" target="_blank">https://access.redhat.com/errata/RHSA-2019:2585</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:2590" target="_blank">https://access.redhat.com/errata/RHSA-2019:2590</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:2592" target="_blank">https://access.redhat.com/errata/RHSA-2019:2592</a></li>
+                
+                  <li><a href="https://access.redhat.com/errata/RHSA-2019:2737" target="_blank">https://access.redhat.com/errata/RHSA-2019:2737</a></li>
+                
+                  <li><a href="https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=12803" target="_blank">https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=12803</a></li>
+                
+                  <li><a href="https://lists.debian.org/debian-lts-announce/2019/05/msg00032.html" target="_blank">https://lists.debian.org/debian-lts-announce/2019/05/msg00032.html</a></li>
+                
+                  <li><a href="https://lists.debian.org/debian-lts-announce/2019/05/msg00038.html" target="_blank">https://lists.debian.org/debian-lts-announce/2019/05/msg00038.html</a></li>
+                
+                  <li><a href="https://seclists.org/bugtraq/2019/Apr/30" target="_blank">https://seclists.org/bugtraq/2019/Apr/30</a></li>
+                
+                  <li><a href="https://seclists.org/bugtraq/2019/May/56" target="_blank">https://seclists.org/bugtraq/2019/May/56</a></li>
+                
+                  <li><a href="https://seclists.org/bugtraq/2019/May/59" target="_blank">https://seclists.org/bugtraq/2019/May/59</a></li>
+                
+                  <li><a href="https://seclists.org/bugtraq/2019/May/67" target="_blank">https://seclists.org/bugtraq/2019/May/67</a></li>
+                
+                  <li><a href="https://security.netapp.com/advisory/ntap-20190719-0005/" target="_blank">https://security.netapp.com/advisory/ntap-20190719-0005/</a></li>
+                
+                  <li><a href="https://support.hpe.com/hpsc/doc/public/display?docLocale=en_US&amp;docId=emr_na-hpesbst03977en_us" target="_blank">https://support.hpe.com/hpsc/doc/public/display?docLocale=en_US&amp;docId=emr_na-hpesbst03977en_us</a></li>
+                
+                  <li><a href="https://usn.ubuntu.com/3962-1/" target="_blank">https://usn.ubuntu.com/3962-1/</a></li>
+                
+                  <li><a href="https://usn.ubuntu.com/3991-1/" target="_blank">https://usn.ubuntu.com/3991-1/</a></li>
+                
+                  <li><a href="https://usn.ubuntu.com/3997-1/" target="_blank">https://usn.ubuntu.com/3997-1/</a></li>
+                
+                  <li><a href="https://usn.ubuntu.com/4083-1/" target="_blank">https://usn.ubuntu.com/4083-1/</a></li>
+                
+                  <li><a href="https://www.debian.org/security/2019/dsa-4448" target="_blank">https://www.debian.org/security/2019/dsa-4448</a></li>
+                
+                  <li><a href="https://www.debian.org/security/2019/dsa-4451" target="_blank">https://www.debian.org/security/2019/dsa-4451</a></li>
+                
+                  <li><a href="https://www.oracle.com/security-alerts/cpuApr2021.html" target="_blank">https://www.oracle.com/security-alerts/cpuApr2021.html</a></li>
+                
+                  <li><a href="https://www.oracle.com/security-alerts/cpuoct2021.html" target="_blank">https://www.oracle.com/security-alerts/cpuoct2021.html</a></li>
+                
+                  <li><a href="https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html" target="_blank">https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html</a></li>
+                
+                  <li><a href="https://packages.mini.dev/advisories/osv/MINI-vqgv-pw8x-cpjf.json" target="_blank">https://packages.mini.dev/advisories/osv/MINI-vqgv-pw8x-cpjf.json</a></li>
+                
+              </ul>
+            
+            
+              <br><strong>Aliases:</strong> CVE-2019-7317, GHSA-m96g-x499-p5f9, JFSA-2023-000317579, MINI-vqgv-pw8x-cpjf, MINI-wqw4-chj5-46fg
+            
+          </td>
+        </tr>
+      
+        
+        
+        
+        <tr>
+          <td>
+            libpng/1.6.32
+          </td>
+          <td>
+            <span style="display: none">CVSS: 6.1</span>
+            
+            CVE-2025-64505
+            <br>
+            
+              <span class="severity-badge severity-Medium">Medium</span>
+            
+            CVSS: 6.1
+          </td>
+          <td>
+            
+            <strong>Description:</strong>
+            <br>
+            LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. Prior to version 1.6.51, a heap buffer over-read vulnerability exists in libpng&#39;s png_do_quantize function when processing PNG files with malformed palette indices. The vulnerability occurs when palette_lookup array bounds are not validated against externally-supplied image data, allowing an attacker to craft a PNG file with out-of-range palette indices that trigger out-of-bounds memory access. This issue has been patched in version 1.6.51.
+            
+                <br>
+                <br>
+                <strong>Published at:</strong> 2025-11-22
+            
+            
+                <div class="fix-versions-section">
+                    <br>
+                    <strong>Fixed in version(s):</strong>
+                    <br>
+                    
+                        <span class="severity-badge severity-Medium">1.6.52</span>
+                    
+                </div>
+            
+            
+              <br><strong>References:</strong>
+              <ul>
+                
+                  <li><a href="https://packages.mini.dev/advisories/osv/MINI-5rgh-w6qx-pxvv.json" target="_blank">https://packages.mini.dev/advisories/osv/MINI-5rgh-w6qx-pxvv.json</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/commit/6a528eb5fd0dd7f6de1c39d30de0e41473431c37" target="_blank">https://github.com/pnggroup/libpng/commit/6a528eb5fd0dd7f6de1c39d30de0e41473431c37</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/security/advisories/GHSA-4952-h5wq-4m42" target="_blank">https://github.com/pnggroup/libpng/security/advisories/GHSA-4952-h5wq-4m42</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/pull/748" target="_blank">https://github.com/pnggroup/libpng/pull/748</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/cve/CVE-2025-64505" target="_blank">https://advisory.echohq.com/cve/CVE-2025-64505</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/osv/ECHO-1949-597a-9e78.json" target="_blank">https://advisory.echohq.com/osv/ECHO-1949-597a-9e78.json</a></li>
+                
+              </ul>
+            
+            
+              <br><strong>Aliases:</strong> CVE-2025-64505, ECHO-1949-597a-9e78, MINI-5rgh-w6qx-pxvv
+            
+          </td>
+        </tr>
+      
+        
+        
+        
+        <tr>
+          <td>
+            libpng/1.6.32
+          </td>
+          <td>
+            <span style="display: none">CVSS: 6.1</span>
+            
+            CVE-2025-64506
+            <br>
+            
+              <span class="severity-badge severity-Medium">Medium</span>
+            
+            CVSS: 6.1
+          </td>
+          <td>
+            
+            <strong>Description:</strong>
+            <br>
+            LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. From version 1.6.0 to before 1.6.51, a heap buffer over-read vulnerability exists in libpng&#39;s png_write_image_8bit function when processing 8-bit images through the simplified write API with convert_to_8bit enabled. The vulnerability affects 8-bit grayscale+alpha, RGB/RGBA, and images with incomplete row data. A conditional guard incorrectly allows 8-bit input to enter code expecting 16-bit input, causing reads up to 2 bytes beyond allocated buffer boundaries. This issue has been patched in version 1.6.51.
+            
+                <br>
+                <br>
+                <strong>Published at:</strong> 2025-11-22
+            
+            
+                <div class="fix-versions-section">
+                    <br>
+                    <strong>Fixed in version(s):</strong>
+                    <br>
+                    
+                        <span class="severity-badge severity-Medium">1.6.52</span>
+                    
+                </div>
+            
+            
+              <br><strong>References:</strong>
+              <ul>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/commit/2bd84c019c300b78e811743fbcddb67c9d9bf821" target="_blank">https://github.com/pnggroup/libpng/commit/2bd84c019c300b78e811743fbcddb67c9d9bf821</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/pull/749" target="_blank">https://github.com/pnggroup/libpng/pull/749</a></li>
+                
+                  <li><a href="https://github.com/pnggroup/libpng/security/advisories/GHSA-qpr4-xm66-hww6" target="_blank">https://github.com/pnggroup/libpng/security/advisories/GHSA-qpr4-xm66-hww6</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/cve/CVE-2025-64506" target="_blank">https://advisory.echohq.com/cve/CVE-2025-64506</a></li>
+                
+                  <li><a href="https://advisory.echohq.com/osv/ECHO-db6d-1c5e-5e4d.json" target="_blank">https://advisory.echohq.com/osv/ECHO-db6d-1c5e-5e4d.json</a></li>
+                
+                  <li><a href="https://packages.mini.dev/advisories/osv/MINI-9h67-8994-rpw6.json" target="_blank">https://packages.mini.dev/advisories/osv/MINI-9h67-8994-rpw6.json</a></li>
+                
+              </ul>
+            
+            
+              <br><strong>Aliases:</strong> CVE-2025-64506, ECHO-db6d-1c5e-5e4d, MINI-9h67-8994-rpw6
+            
+          </td>
+        </tr>
+      
+      </tbody>
+    </table>
+    <div class="footer">
+      <p>Vulnerability information provided by JFrog Advanced Security. Please check <a href="https://jfrog.com/advanced-security/" target="_blank">https://jfrog.com/advanced-security/</a> for more information.</p>
+      <p>You can send questions and report issues about the returned vulnerabilities to <a href="mailto:conan-research@jfrog.com">conan-research@jfrog.com</a>.</p>
+      <p>Conan version: 2.24.0</p>
+    </div>
+  </div>
+</body>
+</html>
