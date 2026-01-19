@@ -57,7 +57,7 @@ class helloRecipe(ConanFile):
 
     def package_info(self):
         # Binaries to link
-        self.cpp_info.libs = ["hellolib"]
+        self.cpp_info.libs = ["hello"]
         # Directories (values by default)
         # self.cpp_info.includedirs = ['include']  # Ordered list of include paths
         # self.cpp_info.libdirs = ['lib']  # Where libraries can be found
