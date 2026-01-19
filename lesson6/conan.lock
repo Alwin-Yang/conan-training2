@@ -1,0 +1,11 @@
+{
+    "version": "0.5",
+    "requires": [
+        "fmt/11.2.0#579bb2cdf4a7607621beea4eb4651e0f%1746298708.362"
+    ],
+    "build_requires": [
+        "cmake/3.31.5#e3bab375e96b9be619fd62f6e406c5cf%1739197479.641"
+    ],
+    "python_requires": [],
+    "config_requires": []
+}
